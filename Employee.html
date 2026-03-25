@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/style.css">
+    <title>Employee Database Management System</title>
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="header-left">
+                <h1>Employee Database</h1>
+                <p class="header-subtitle">Manage your team efficiently</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalEmployees">0</span>
+                    <span class="stat-label">Employees</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="avgSalary">0</span>
+                    <span class="stat-label">Avg Salary</span>
+                </div>
+            </div>
+            <button class="add-btn">
+                <span class="btn-icon">+</span>Add Employee
+            </button>
+        </header>
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search employees..." />
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="sort-box">
+                <label>Sort by:</label>
+                <select id="sortSelect">
+                    <option value="name">Name (A-Z)</option>
+                    <option value="salary">Salary (Low-High)</option>
+                    <option value="namedesc">Name (Z-A)</option>
+                    <option value="salarydesc">Salary (High-Low)</option>
+                    <option value="age">Age (Young-Old)</option>
+                    <option value="agedesc">Age (Old-Young)</option>
+                </select>
+            </div>
+        </div>
+        <div class="emp-container">
+            <div class="emp-list">
+                <span class="emp-list-title">
+                    Employee List
+                </span>
+                <div class="emp-list-items"></div>
+            </div>
+            <div class="emp-detail">
+                <div class="emp-detail-title">
+                    Employee Information
+                </div>
+                <div class="emp-detail-info"></div>
+            </div>
+        </div>
+        <div class="modal">
+            <form class="emp-form">
+                <h2>Add New Employee</h2>
+                <div>
+                    <input type="text" name="firstname" placeholder="Firstname" required/>
+                    <input type="text" name="lastname" placeholder="Lastname" required/>
+                </div>
+                <input type="text" name="imageUrl" placeholder="Image URL (optional)"/>
+                <input type="email" name="email" placeholder="Email" required/>
+                <input type="number" name="Contact Number" placeholder="Contact Number" required/>
+                <input type="number" name="salary" placeholder="Salary" required/>
+                <input type="text" name="address" placeholder="Address" required/>
+                <input type="date" name="dob" placeholder="Date of Birth" class="emp-form-dob" required/>
+                <input type="submit" class="emp-form-submit" value="Add Employee"/>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </form>
+        </div>
+        <div class="edit-modal">
+            <form class="emp-form edit-form">
+                <h2>Edit Employee</h2>
+                <input type="hidden" name="editId"/>
+                <div>
+                    <input type="text" name="editfirstname" placeholder="Firstname" required/>
+                    <input type="text" name="editlastname" placeholder="Lastname" required/>
+                </div>
+                <input type="text" name="editimageUrl" placeholder="Image URL (optional)"/>
+                <input type="email" name="editemail" placeholder="Email" required/>
+                <input type="number" name="editContactNumber" placeholder="Contact Number" required/>
+                <input type="number" name="editsalary" placeholder="Salary" required/>
+                <input type="text" name="editaddress" placeholder="Address" required/>
+                <input type="date" name="editdob" placeholder="Date of Birth" class="emp-form-dob" required/>
+                <input type="submit" class="emp-form-submit edit-submit-btn" value="Update Employee"/>
+                <button type="button" class="cancel-btn edit-cancel-btn">Cancel</button>
+            </form>
+        </div>
+        <div class="toast-container" id="toast-container"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
